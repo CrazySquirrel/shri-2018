@@ -1,0 +1,34 @@
+.button_type_dismiss {
+	margin-right: 15px;
+	background: #e9ecef;
+	border: 1px solid #e9ecef;
+}
+.button_type_dismiss:hover {
+	background: #dde0e3;
+	border: 1px solid #dde0e3; 
+}
+.button_type_dismiss:active {
+	background: #c7cdd3;
+	border: 1px solid #c7cdd3;
+}
+
+
+.button_type_dismiss::before {
+	background: #e9ecef;
+}
+.button_type_dismiss:hover::before {
+	background: #dde0e3;
+	border: 1px solid #dde0e3; 
+}
+.button_type_dismiss:active::before {
+	background: #c7cdd3;
+	border: 1px solid #c7cdd3;
+}
+
+.button_type_dismiss .button__text {
+	font-family: HelveticaNeue-Medium, 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	color: #000;
+	letter-spacing: 0;
+}

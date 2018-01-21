@@ -1,0 +1,10 @@
+.timeline__text {
+	position: absolute;
+	top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    font-family: HelveticaNeue-Bold, 'Open Sans', sans-serif;
+	font-size: 11px;
+	color: #252525;
+	letter-spacing: 0.4px;
+}

@@ -1,0 +1,16 @@
+.grid__text_type_room-title {
+	font-family: HelveticaNeue-Medium, 'Open Sans', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 17px;
+	color: #000;
+	margin-top: -2px;
+}
+
+.grid__text_type_room-title:hover {
+	color: #0070E0;
+}
+
+.grid__text_type_room-title:active {
+	color: #1D54FE;
+}

@@ -1,0 +1,12 @@
+.meeting-edit__row {
+	display: flex;
+	flex-direction: row;
+	justify-content: baseline;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__row {
+		flex-direction: column;
+	}
+}

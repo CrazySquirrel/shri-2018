@@ -1,0 +1,24 @@
+.grid {
+	display: grid;
+	grid-template-rows: 23px 23px 28px 24px 28px 24px 28px 24px 28px 23px 23px 28px 24px 28px 24px 28px 24px 28px 24px 28px auto;
+	grid-template-columns: 225px 2.5% auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto 1%;
+	height: 100%;
+	width: auto;
+	padding-left: 25px;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.grid{
+		grid-template-rows: 2px 36px 56px 2px 56px 2px 56px 2px 56px 2px 36px 56px 2px 56px 2px 56px 2px 56px 2px 56px auto;
+		grid-template-columns: 150px 50px repeat(16, 56px);
+		padding-left: 10px;
+	}
+}
+
+@media only screen
+and (min-width : 321px) {
+  .grid{
+      grid-template-columns: 225px 50px repeat(16, 56px);
+  }
+}

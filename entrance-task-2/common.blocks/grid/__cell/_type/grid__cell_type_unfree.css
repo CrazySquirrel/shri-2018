@@ -1,0 +1,17 @@
+.grid__cell_type_unfree {
+	display: flex;
+	flex-direction: row;
+	background: #D5DFE9;
+	border-left: 1px solid #c1d1e4;
+	transition: background .5s ease; 
+}
+
+.grid__cell_type_unfree:hover {
+	background: #98A9B9;	
+	transition: background .5s ease; 
+}
+
+.grid__cell_type_unfree:active {
+	background: #989A9C;	
+	transition: background .5s ease; 
+}

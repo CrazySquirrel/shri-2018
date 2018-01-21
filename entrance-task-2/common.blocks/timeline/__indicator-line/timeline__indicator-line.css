@@ -1,0 +1,7 @@
+.timeline__indicator-line {
+    border-right: 1px solid #007DFF;
+    height: 9999px;
+    position: fixed;
+    top: 100%;
+    left: 50%;
+}

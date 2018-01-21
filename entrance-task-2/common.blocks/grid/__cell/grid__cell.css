@@ -1,0 +1,5 @@
+.grid__cell {
+	position: relative;
+	border-left: 1px solid #dee7f4;
+	background: #F6F7F9;
+}

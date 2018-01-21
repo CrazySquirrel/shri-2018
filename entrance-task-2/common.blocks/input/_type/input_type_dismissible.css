@@ -1,0 +1,20 @@
+.input_type_dismissible .input__box {
+	position: relative;
+}
+
+.input_type_dismissible .input__box::after {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	content: '✖';
+    font-size: 14px;
+    line-height: 24px;
+    color: #afb4b8;
+    font-weight: 400;
+    cursor: pointer;
+    transform: translate(-10px, -50%);
+}
+
+.input_type_dismissible .input__control {
+	color: #000;
+}

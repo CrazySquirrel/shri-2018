@@ -1,0 +1,11 @@
+.meeting-edit__dash {
+
+}
+
+.meeting-edit__dash::before {
+	position: relative;
+	content: '—';
+	font-weight: bold;
+	text-align: center;
+	margin-left: 0px;
+}

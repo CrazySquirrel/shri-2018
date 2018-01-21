@@ -1,0 +1,15 @@
+.timeline {
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+	padding: 12px 0 12px 25px;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.timeline{
+    flex-direction: column;
+	  padding: 0;
+	}
+}

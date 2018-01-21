@@ -1,0 +1,12 @@
+.meeting-edit__input_type_time {
+	width: 45%;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__input_type_time {
+	    width: 50%;
+	    padding: 0 10px 0 15px;
+	    margin: 0;
+	}
+}

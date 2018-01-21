@@ -1,0 +1,7 @@
+.timeline__hour {
+	position: relative;
+}
+
+.timeline__hour_current{
+  z-index: 5;
+}

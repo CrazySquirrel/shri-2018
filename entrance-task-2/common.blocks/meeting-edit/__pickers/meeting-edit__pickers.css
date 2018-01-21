@@ -1,0 +1,14 @@
+.meeting-edit__pickers {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__pickers {
+    	flex-direction: column;
+	}
+}

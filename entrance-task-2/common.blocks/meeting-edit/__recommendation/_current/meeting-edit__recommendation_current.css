@@ -1,0 +1,18 @@
+.meeting-edit__recommendation_current {
+	position: relative;
+	background: #007DFF;
+	color: #fff;
+}
+
+.meeting-edit__recommendation_current::after {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	content: '✖';
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    transform: translate(-15px, -50%);
+}

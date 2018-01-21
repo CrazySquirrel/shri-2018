@@ -1,0 +1,20 @@
+.input_type_date .input__box {
+	position: relative;
+}
+
+.input_type_date .input__box::after {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	content: '';
+	height: 12px;
+	width: 12px;
+	background-image: url(../../../img/calendar.svg); 
+    font-size: 14px;
+    line-height: 24px;
+    color: #afb4b8;
+    font-weight: 400;
+    cursor: pointer;
+    transform: translate(-10px, -50%);
+    opacity: 0.33;
+}

@@ -1,0 +1,10 @@
+.header__side_align_right {
+	margin-left: auto;
+}
+
+@media only screen
+and (max-width : 767px) {
+	.header__side_align_right{
+		display: none;
+	}
+}

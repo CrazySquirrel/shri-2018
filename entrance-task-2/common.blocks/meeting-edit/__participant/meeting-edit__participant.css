@@ -1,0 +1,44 @@
+.meeting-edit__participant {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+	height: 24px;
+	background: #E9ECEF;
+	border-radius: 16px;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding-right: 10px;
+	font-family: HelveticaNeue, 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 17px; 
+}
+
+.meeting-edit__participant::after {
+	position: relative;
+	content: '✖';
+    font-size: 14px;
+    line-height: 24px;
+    color: #afb4b8;
+    font-weight: 400;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__participant {
+	    width: 290px;
+	    padding: 0;
+		height: 32px;
+		line-height: 32px;
+	}
+
+	.meeting-edit__participant::after {
+		position: absolute;
+		right: 20px;
+	    line-height: 32px;
+	    margin: 0;
+	}
+}

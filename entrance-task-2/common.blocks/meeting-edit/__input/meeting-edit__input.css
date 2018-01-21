@@ -1,0 +1,39 @@
+.meeting-edit__input {
+	display: flex;
+	flex-direction: column;    
+	width: 100%;
+	font-family: HelveticaNeue-Bold, 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 0;
+    margin-bottom: 20px;
+}
+
+.meeting-edit__input .input__box {
+	background: none;
+}
+
+.meeting-edit__input .input__control {
+	margin-top: 5px;
+	border: 2px solid #E9ECEF;
+	border-radius: 4px;
+	font-family: HelveticaNeue, 'Open Sans', sans-serif;
+	font-size: 13px;
+	color: #858E98;
+	letter-spacing: 0.47px;
+	width: 90%;
+	height: 30px;
+	padding-left: 5px;
+}
+
+.meeting-edit__input .input__control:focus {
+	outline: none;
+	border: 2px solid #017dff;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__input {
+		padding: 0 15px;
+	}
+}

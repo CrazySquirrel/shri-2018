@@ -1,0 +1,13 @@
+.grid__cell_type_selected {
+	z-index: 50;
+	width: 200%;
+  height: 100%;
+}
+
+.grid__cell_type_selected::after {
+    content: "";
+    position: absolute;
+    background: #99A9B9;
+    width: 203%;
+    height: 100%;
+}

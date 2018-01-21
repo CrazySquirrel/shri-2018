@@ -1,0 +1,33 @@
+.caption {
+	position: absolute;
+    top: 100%;
+    left: 101%;
+    transform: translate(-50%, 0);
+    z-index: 100;
+    padding: 15px;
+    background: #fff;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 1px 16px 0 rgba(0,44,92,0.28);
+    margin-left: 1px;
+}
+
+.caption::after{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 2px;
+	transform: translate(-50%, -100%);
+	content: '';
+	border-right: 7px solid transparent;
+    border-bottom: 8px solid #fff;
+    border-left: 7px solid transparent;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.caption{
+    width: 90vw;
+		padding: 5vw;
+	}
+}

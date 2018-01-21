@@ -1,0 +1,24 @@
+.modal__body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 450px;
+	height: 250px;
+	background: #fff;
+	z-index: 1300;
+	border-radius: 8px;
+	box-shadow: 0 1px 16px 0 rgba(0,44,92,0.28);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+@media only screen
+and (max-width : 767px)
+and (orientation : portrait){
+	.modal__body{
+		width: 100vw;
+	}
+}

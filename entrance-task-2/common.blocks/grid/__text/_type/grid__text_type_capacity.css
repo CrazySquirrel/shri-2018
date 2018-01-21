@@ -1,0 +1,17 @@
+.grid__text_type_capacity {
+	font-family: HelveticaNeue, 'Open Sans', sans-serif;
+	font-size: 13px;
+	line-height: 17px;
+	color: #000;
+    z-index: 10;
+    position: absolute;
+    top: 17px;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.grid__text_type_capacity{
+		position: relative;
+		top: auto;
+	}
+}

@@ -1,0 +1,9 @@
+.widget_type_close::after {
+	position: absolute;
+	left: 50%;
+	content: '✖';
+	transform: translateX(-50%);
+    font-size: 14px;
+    line-height: 24px;
+    color: #8b8d8f;
+}

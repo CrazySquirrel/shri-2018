@@ -1,0 +1,30 @@
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+    border-top: 1px solid #e9ecef;
+    background: #fff;
+    z-index: 1000;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.footer {
+		position: relative;
+		border: none;
+	    background: #fff;
+	    z-index: 1000;
+		width: 100%;
+		height: 70px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}

@@ -1,0 +1,13 @@
+.grid__cell_type_floor {
+	background: #FFF;
+	border: 0;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.grid__cell_type_floor{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

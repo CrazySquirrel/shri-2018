@@ -1,0 +1,8 @@
+.image_edit {
+    transform: translate(-50%, -50%);
+    opacity: .43;
+}
+
+.image_edit:hover {
+	opacity: 1;
+}

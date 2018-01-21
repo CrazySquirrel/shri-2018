@@ -1,0 +1,10 @@
+.meeting-edit__side_align_right {
+	margin-left: 35px;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__side_align_right {
+		margin: 20px 0 0 0;
+	}
+}

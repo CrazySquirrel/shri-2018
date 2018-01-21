@@ -1,0 +1,11 @@
+.meeting-edit__datepicker {
+	width: 55%;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__datepicker {
+	    width: 100%;
+        margin-bottom: -15px;
+	}
+}

@@ -1,0 +1,10 @@
+.meeting-edit__row_first {
+	margin-bottom: 20px;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.meeting-edit__row_first {
+		margin-bottom: 10px;
+	}
+}

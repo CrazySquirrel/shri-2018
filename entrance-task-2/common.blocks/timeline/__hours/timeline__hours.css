@@ -1,0 +1,21 @@
+.timeline__hours {
+  display: grid;
+  width: 100%;
+  height: 32px;
+	grid-template-columns: 2.5% auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto 1%;
+}
+
+@media only screen
+and (max-width : 320px) {
+	.timeline__hours{
+      margin-left: 160px;
+      grid-template-columns: 50px repeat(16, 56px);
+	}
+}
+
+@media only screen
+and (min-width : 321px) {
+  .timeline__hours{
+      grid-template-columns: 50px repeat(16, 56px);
+  }
+}
