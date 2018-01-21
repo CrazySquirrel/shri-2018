@@ -4,7 +4,10 @@
   "description": "",
   "main": "src/server/index.js",
   "author": "vlasnikita",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vlasnikita/shri-2018/tree/master/entrance-task-1.git"
+  },
   "engines": {
     "node": ">=8.4.0"
   },
