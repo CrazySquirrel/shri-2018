@@ -1,0 +1,23 @@
+.datepicker {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	transform: translateX(5%);
+	background: #fff;
+	@include border-shadow();
+}
+
+.datepicker_editor {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.datepicker__body {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	padding: 10px;
+	height: 220px;
+	width: 600px;
+}

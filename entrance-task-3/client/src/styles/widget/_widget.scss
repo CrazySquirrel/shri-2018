@@ -1,0 +1,48 @@
+.widget {
+	height: 24px;
+	width: 24px;
+	background: $grey;
+    border: none;
+	border-radius: 50%;
+    outline: none;
+	position: relative;
+    cursor: pointer;
+
+    .widget__image {
+		margin: 0;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	}
+	.widget__image_left {
+    	transform: translate(-65%, -50%);
+	}
+	.widget__image_right {
+		transform: translate(-35%, -50%);
+	}
+	.widget__image_edit {
+	    transform: translate(-50%, -50%);
+	}
+
+}
+
+.widget_type_close {
+	margin-left: auto;
+}
+
+.widget_type_close::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: '✖';
+	transform: translate(-50%, -50%);
+    font-size: 14px;
+    line-height: 24px;
+    color: #8b8d8f;
+}
+
+.widget_type_edit {
+		position: absolute;
+		top: 10px;
+	    right: 10px;
+	}

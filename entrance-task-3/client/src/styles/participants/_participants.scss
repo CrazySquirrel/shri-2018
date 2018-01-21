@@ -1,0 +1,22 @@
+.participants {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+
+    .participants__image {
+		border-radius: 50%;
+		margin-right: 5px;
+	}
+
+	.participants__member {
+		line-height: 17px;
+		@include font-medium();
+	}
+
+	.participants__others {
+	    margin-left: 5px;
+		line-height: 17px;
+		@include font(13px, #989A9C);
+	}
+}

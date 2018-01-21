@@ -1,0 +1,43 @@
+.modal {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+	z-index: 1200;
+	background: rgba(0,16,33,0.40);
+	
+	.modal__body {
+	position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	width: 450px;
+	height: 200px;
+	padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+
+	.modal__emoji {
+		font-size: 40px;
+	}
+
+	.modal__title {
+		@include font-bold(20px);
+	}
+
+	.modal__buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@include font(15px);
+	@include border-shadow();
+}
+}
+

@@ -1,0 +1,45 @@
+.recommendations {
+	@include font-bold(13px);
+
+	.recommendations__recommendation {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		width: 100%;
+		height: 40px;
+		background: $grey;
+		border-radius: 4px;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+
+	.recommendations__recommendation_current {
+		position: relative;
+		background: $blue;
+
+		.recommendations__time {
+			line-height: 17px;
+			margin-left: 10px;
+			@include font-bold(13px, #fff);
+		}
+
+		.recommendations__room {
+			line-height: 17px;
+			margin-left: 15px;
+			@include font(13px, #fff);
+		}
+	}
+
+	.recommendations__time {
+		line-height: 17px;
+		margin-left: 10px;
+		@include font-bold(13px);
+	}
+
+	.recommendations__room {
+		line-height: 17px;
+		margin-left: 15px;
+		@include font(13px);
+	}
+}

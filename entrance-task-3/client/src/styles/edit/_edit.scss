@@ -1,0 +1,152 @@
+.edit {
+	margin: 40px 15% 0 15%;
+	display: flex;
+	flex-direction: column;
+
+	.edit__title {
+		@include font-bold(20px);
+	}
+
+	.edit__row {
+		display: flex;
+		flex-direction: row;
+		justify-content: baseline;
+	}
+
+	.edit__row_first {
+		margin-bottom: 20px;
+	}
+
+	.edit__side {
+		width: 100%;
+		height: 100%;
+	}
+
+	.edit__side_right {
+		margin-left: 35px;
+	}
+
+	.edit__pickers {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.edit__datepicker {
+		z-index: 100;
+		width: 55%;
+	}
+
+	.edit__timepicker {
+		width: auto;
+		margin-left: 25px; 
+	    display: flex;
+	    flex-direction: row;
+	    align-items: center;
+	    justify-content: space-between;
+	    @include font();
+	}
+
+	.edit__input {
+		display: flex;
+		flex-direction: column;    
+		width: 100%;
+	    margin-bottom: 20px;
+	    @include font-bold();
+	}
+
+
+	.edit__input-field {
+	    margin-top: 5px;
+	    border: 2px solid $grey;
+	    border-radius: 4px;
+	    width: auto;
+	    height: 30px;
+	    padding-left: 5px;
+	    @include font();
+	}
+
+	.edit__input-field:focus {
+		outline: none;
+		border: 2px solid #017dff;
+	}
+
+	.edit__selected-container {
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	}
+
+	.edit__selected {
+		display: flex;
+	    flex-direction: row;
+		height: 24px;
+	    width: fit-content;
+		background: $grey;
+		border-radius: 12px;
+	    align-items: center;
+    	padding-right: 5px;
+    	margin: 0 10px 10px 0;
+	}
+
+	.edit__input_time {
+		width: 45%;
+	}
+
+	.edit__input_date {
+		position: relative;
+	}
+
+	.edit__input_date > input {
+    	margin-top: 5px;
+	    border: 2px solid $grey;
+	    border-radius: 4px;
+	    background: transparent;
+	    width: 100%;
+	    height: 30px;
+	    padding-left: 5px;
+	    text-align: left;
+	    cursor: pointer;
+	    @include font();
+	}
+
+	.edit__input_date::after {
+		position: absolute;
+		z-index: -1;
+		right: 0;
+		top: 50%;
+		content: '';
+		height: 12px;
+		width: 12px;
+		background-image: url(../images/calendar.svg); 
+	    font-size: 14px;
+	    line-height: 24px;
+	    color: #afb4b8;
+	    font-weight: 400;
+	    cursor: pointer;
+	    transform: translate(-10px, -50%);
+	    opacity: 0.33;
+	}
+
+	.edit__select > * {
+	    margin-top: 5px;
+	    border: 2px solid $grey;
+	    border-radius: 4px;
+	    font-weight: 400;
+	    width: 100%;
+	    height: 30px;
+	    padding-left: 5px;
+	}
+
+	.edit__select > *:focus {
+		outline: none;
+		border: 2px solid #017dff;
+	}
+
+	.Select-menu-outer{
+		border: none;
+		outline: none;
+	}
+}

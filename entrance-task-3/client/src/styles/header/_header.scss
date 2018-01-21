@@ -1,0 +1,19 @@
+.header {
+	padding: 0 25px;
+    height: 70px;
+    display: flex;
+    border-bottom: 1px solid $grey;
+    background: #fff;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+
+	.header__side {
+	align-items: center;
+    display: flex;
+	}
+
+	.header__side_align_right {
+	margin-left: auto;
+	}
+}

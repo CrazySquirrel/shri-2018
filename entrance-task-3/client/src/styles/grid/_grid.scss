@@ -1,0 +1,164 @@
+.grid {
+	padding-left: 25px;
+	
+	.grid__row {
+		display: grid;
+		grid-template-columns: $columns-width;
+		width: auto;
+		height: 25px;
+	}
+
+	.grid__row_type_room {
+		display: grid;
+		grid-template-columns: $columns-width;
+		width: auto;
+		height: 30px;
+	}
+
+	.grid__cell {
+	    display: flex;
+    	flex-direction: row;
+    	justify-content: start;
+		position: relative;
+		border-left: 1px solid #dee7f4; 
+		background: $light-grey;
+	}
+
+	.grid__cell_left {
+		background: #FFF;
+		border: 0;
+	}
+
+	.grid__cell_disabled {
+		background: $asphalt;
+		border-left: 1px solid #c1d1e4; 
+	}
+
+	.grid__cell_enabled {
+		background: #FFF;
+		border-left: 1px solid #e7effa;
+	}
+
+	.grid__filler {
+		background: $asphalt;
+		outline: none;
+		border: none;
+	}
+
+	.grid__event {
+		z-index: 60;
+		height: 100%;
+	}
+
+	.grid__event:hover {
+		z-index: 160;
+	}
+
+	.grid__event-button {
+		height: 100%;
+	    width: inherit;
+	    position: absolute;
+	    z-index: 10;
+        border: none;
+	    outline: none;
+	    cursor: pointer;
+		background: $dark-grey;
+	    transition: background .25s ease; 
+	}
+
+	.grid__event-button:hover {
+		background: #98A9B9;	
+		transition: background .25s ease; 
+	}
+
+	.grid__event-button:active {
+		background: #989A9C;	
+		transition: background .25s ease; 
+	}
+
+	.grid__vacant {
+		z-index: 50;
+		height: 100%;
+		background: #fff;
+	}
+
+	.grid__vacant:hover {
+		z-index: 150;
+	}
+
+	.grid__vacant-button {
+	    position: absolute;
+	    top: 1%;
+	    right: 1%;
+		height: 98%;
+	    width: inherit;
+	    min-width: 20px;
+	    opacity: 0;
+	    z-index: 10;
+        border: none;
+        border-radius: 2px;
+	    outline: none;
+	    cursor: pointer;
+		background: none;
+	    transition: opacity .35s ease, background .35s ease;
+	}
+
+	.grid__vacant-button:hover {
+		opacity: 1;
+		background: $blue;	
+		transition: opacity .35s ease, background .35s ease;
+	}
+
+	.grid__vacant-button:active {
+		background: $dark-blue;	
+		transition: background .35s ease;
+	}
+
+	.grid__vacant-button::after {
+	    position: absolute;
+	    content: '+';
+        top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    color: #fff;
+	    font-size: 22px;
+	}
+
+	.grid__text_floor-title {
+		font-weight: bold;
+		letter-spacing: 0.4px;
+		@include font-bold(11px, #858E98);
+	}
+
+	.grid__text_room-title {
+		font-weight: bold;
+		line-height: 17px;
+		@include font-medium(15px);
+	}
+
+	.grid__text_room-title:hover {
+		color: $blue;
+	}
+
+	.grid__text_room-title:active {
+		color: $dark-blue;
+	}
+
+	.grid__text_capacity {
+		line-height: 17px;
+	    z-index: 10;
+	    position: absolute;
+	    top: 17px;
+		@include font();
+	}
+
+	.grid__text_disabled {
+		color: #858E98;
+	}
+	
+	@each $minutes, $width in $size-by-minutes {
+		.grid__event_minutes_#{$minutes} {
+			width: $width;
+		}
+	} 
+}

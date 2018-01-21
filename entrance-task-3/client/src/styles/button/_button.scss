@@ -1,0 +1,50 @@
+.button {
+    line-height: 32px;
+    background: $blue;
+    border: 1px solid $blue;
+    border-radius: 3px;
+    outline: 0;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 10px;
+    @include font-medium(13px, #fff);
+}
+
+.button:hover {
+	background: $blue;
+	border: 1px solid $blue; 
+}
+
+.button:active {
+	background: $dark-blue;
+	border: 1px solid $dark-blue-translucent;
+}
+
+.button:disabled {
+    background: #e2e5e8;
+    border: 1px solid #e2e5e8;
+    border-radius: 4px;
+    color: rgba(0,0,0,0.20);
+    cursor: not-allowed;
+}
+
+.button_grey {
+    background: $grey;
+    border: 1px solid $grey;
+    @include font-bold(13px,  #252525);
+}
+
+.button_grey:hover {
+    background: #dde0e4;
+    border: 1px solid #dde0e4; 
+}
+
+.button_grey:active {
+    background: #c7cdd3;
+    border: 1px solid #c7cdd3;
+}
+
+.button_margin_left {
+    margin-left: 15px;
+}

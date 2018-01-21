@@ -1,0 +1,85 @@
+.timeline{
+	position: sticky;
+    top: 71px;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid $grey;
+    display: grid;
+	grid-template-columns: 255px 2.5% auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto 1%;
+	width: auto;
+	padding: 12px 0 12px 25px;
+
+	.timeline__current{
+		z-index: 300;
+		display: flex;
+	    text-align: center;
+	    align-items: center;
+	    justify-content: space-between;
+	    min-width: 230px;
+	    width: 230px;
+	    margin-right: 25px;
+	}
+
+	.timeline__input > input {
+	    width: 170px;
+    	text-align: center;
+		text-shadow: 0 0 0 #000;
+	    letter-spacing: 0;
+	    outline: none;
+	    border: none;
+	    cursor: pointer;
+	    @include font-medium(15px, transparent);
+	}
+
+	.timeline__hour {
+		position: relative;
+		z-index: 1;
+	}
+
+	.timeline__hour_current {
+		z-index: 100;
+	}
+
+	.timeline__text {
+		position: absolute;
+		top: 50%;
+	    left: 0%;
+	    transform: translate(-50%, -50%);
+		letter-spacing: 0.4px;
+		@include font-bold(11px);
+	}
+
+	.timeline__text_past {
+		color: #858E98;
+	}
+
+	.timeline__indicator {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		background: $blue;
+		border-radius: 100px;
+	    width: 49px;
+	    height: 15px;
+	    line-height: 13px;
+	    text-align: center;
+		letter-spacing: 0.4px;
+		padding: 3px 0;
+        transform: translate(-50%, -50%);
+	    @include font-bold(11px, #fff);
+	}
+
+	.timeline__indicator-line {
+	    border-right: 2px solid $blue;
+	    height: 9999px;
+	    position: fixed;
+	    top: 100%;
+	    left: 50%;
+	}
+	
+	@each $minutes, $width in $size-by-minutes {
+		.timeline__indicator_minutes_#{$minutes} {
+			margin-left: $width;
+		}
+	} 
+}

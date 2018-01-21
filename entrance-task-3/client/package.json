@@ -1,0 +1,53 @@
+{
+  "author": "vlasnikita",
+  "name": "entrance-task-3-client",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bem/project-stub.git"
+  },
+  "dependencies": {
+    "apollo-client": "^1.9.3",
+    "apollo-test-utils": "^0.1.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.8",
+    "false": "0.0.4",
+    "file-loader": "^1.1.6",
+    "graphql": "^0.10.1",
+    "graphql-tools": "^0.10.0",
+    "moment": "^2.20.1",
+    "node-sass": "^4.7.2",
+    "react": "^16.2.0",
+    "react-apollo": "^1.1.2",
+    "react-day-picker": "^7.0.7",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.0.0",
+    "react-select": "^1.2.1",
+    "react-select-plus": "^1.1.0",
+    "react-transition-group": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "subscriptions-transport-ws": "^0.7.3",
+    "url-loader": "^0.6.2",
+    "uuid": "^3.1.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

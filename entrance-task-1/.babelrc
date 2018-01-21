@@ -1,0 +1,11 @@
+{
+  "passPerPreset": true,
+  "presets": [
+    "es2015",
+    "env",
+    "react"
+  ],
+  "plugins": [
+  	"transform-class-properties"
+  ]
+}

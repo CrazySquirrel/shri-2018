@@ -1,0 +1,75 @@
+// Colors
+$blue: #007DFF;
+$dark-blue: #0059FF;
+$dark-blue-translucent: rgba(11,0,255,0.80);
+$black: #252525;
+$grey: #E9ECEF;
+$light-grey: #F6F7F9;
+$dark-grey: #C4D6E8;
+$asphalt: #D5DFE9;
+
+
+// Fonts
+@mixin font($size: 13px, $color: #252525){
+        font-family: HelveticaNeue, 'Open Sans', sans-serif;
+        font-size: $size;
+        color: $color;
+};
+@mixin font-bold($size: 13px, $color: #252525){
+        font-family: HelveticaNeue-Bold, 'Open Sans', sans-serif;
+        font-weight: bold;
+        font-size: $size;
+        color: $color;
+};
+@mixin font-medium($size: 13px, $color: #252525){
+        font-family: HelveticaNeue-Medium, 'Open Sans', sans-serif;
+        font-size: $size;
+        color: $color;
+};
+
+// Spacing
+@mixin border-shadow(){
+        border-radius: 8px;
+        box-shadow: 0 1px 16px 0 rgba(0,44,92,0.28);
+};
+
+// Sizing
+$columns-width: 255px 2.5% auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto 1%;
+$size-by-minutes: (
+    5: 8.33%,
+    10: 16.67%,
+    15: 25%,
+    20: 33.33%,
+    25: 41.67%,
+    30: 50%,
+    35: 58.33%,
+    40: 66.67%,
+    45: 75%,
+    50: 83.33%,
+    55: 91.67%,
+    60: 100%,
+    65: 110.33%,
+    70: 118.67%,
+    75: 127%,
+    80: 135.33%,
+    85: 143.67%,
+    90: 152%,
+    95: 160.33%,
+    100: 168.67%,
+    105: 177%,
+    110: 185.33%,
+    115: 193.67%,
+    120: 204%,
+    125: 212.33%,
+    130: 220.67%,
+    135: 229%,
+    140: 237.33%,
+    145: 245.67%,
+    150: 254%,
+    155: 262.33%,
+    160: 272.67%,
+    165: 275%,
+    170: 283.33%,
+    175: 291.67%,
+    180: 300%
+);
