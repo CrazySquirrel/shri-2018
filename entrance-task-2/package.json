@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git://github.com/vlasnikita/shri-2018/tree/master/entrance-task-2.git"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "bem": "^2.0.0",
@@ -30,6 +33,14 @@
     "gulp-postcss": "^7.0.0",
     "gulp-uglify": "^3.0.0",
     "merge2": "^1.1.0",
+    "postcss-calc": "^6.0.0",
+    "postcss-each": "^0.10.0",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^10.0.0",
+    "postcss-nested": "^2.0.2",
+    "postcss-reporter": "^4.0.0",
+    "postcss-simple-vars": "^4.0.0",
+    "postcss-url": "^7.0.0",
     "rebem-css": "^0.2.0",
     "through2-filter": "^2.0.0",
     "ym": "^0.1.2"

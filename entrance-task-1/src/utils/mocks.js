@@ -1,26 +1,30 @@
 export default {
-	createUser: (login, homeFloor) => `
+	createUser: (login, homeFloor, avatarUrl) => `
 		mutation {
 			createUser(input: {
-				login: "${login}", 
-				homeFloor: ${homeFloor}
+				login: "${login}",
+				homeFloor: ${homeFloor},
+				avatarUrl: "${avatarUrl}"
 			}) {
 				id,
 				login,
-				homeFloor
+				homeFloor,
+				avatarUrl
 			}
 		}
 	`,
 
-	updateUser: (id, login, homeFloor) => `
+	updateUser: (id, login, homeFloor, avatarUrl) => `
 		mutation {
 			updateUser(id: "${id}", input: {
 				login: "${login}",
-				homeFloor: ${homeFloor}
+				homeFloor: ${homeFloor},
+				avatarUrl: "${avatarUrl}"
 			}) {
 				id,
 				login,
-				homeFloor
+				homeFloor,
+				avatarUrl
 			}
 		}
 	`,
@@ -30,7 +34,8 @@ export default {
 			removeUser(id: ${id}) {
 				id,
 				login,
-				homeFloor
+				homeFloor,
+				avatarUrl
 			}
 		}
 	`,
@@ -38,8 +43,8 @@ export default {
 	createRoom: (title, capacity, floor) => `
 		mutation {
 			createRoom(input: {
-				title: "${title}", 
-				capacity: ${capacity}, 
+				title: "${title}",
+				capacity: ${capacity},
 				floor: ${floor}
 			}) {
 				id,
@@ -53,8 +58,8 @@ export default {
 	updateRoom: (id, title, capacity, floor) => `
 		mutation {
 			updateRoom(id: ${id}, input: {
-				title: "${title}", 
-				capacity: ${capacity}, 
+				title: "${title}",
+				capacity: ${capacity},
 				floor: ${floor}
 			}) {
 				id,
