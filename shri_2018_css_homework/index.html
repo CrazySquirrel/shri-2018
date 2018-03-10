@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>ZEN</title>
+</head>
+<body>
+	<div class="content">
+		<div class="feed-header">
+			<picture>
+				<source srcset="img/zen_logo.png" media="(max-width: 320px)">
+			 	<source srcset="img/zen_logo@2x.png" media="(max-width: 768px)">
+				<img src="img/zen_logo@3x.png" alt="Яндекс.Дзен">
+			</picture>		
+		</div>
+		<div class="feed">
+
+		</div>
+
+
+		<!-- 4 типа карточек: -->
+		<!-- Большие -->
+		<template id="template_l">
+		  <div class="item">
+		  	<div class="item__image-container">
+		  		<picture>
+					<source srcset="" media="(max-width: 320px)">
+				 	<source srcset="" media="(max-width: 768px)">
+					<img src="" alt="">
+				</picture>
+		  	</div>
+  			<div class="item__title"></div>
+		  	<div class="item__description"></div>
+		  	<div class="item__options">
+				<img src="design_specs/assets/Actions.png" alt="Ещё">
+				<img src="design_specs/assets/Heart.png" alt="Нравится">
+		  	</div>
+		  </div>
+		</template>
+
+		<!-- Средние -->
+		<template id="template_m">
+		  <div class="item">
+  			<div class="item__title-container">
+  				<div class="item__title"></div>
+  			</div>
+		  	<div class="item__image-container">
+		  		<picture>
+					<source srcset="" media="(max-width: 320px)">
+				 	<source srcset="" media="(max-width: 768px)">
+					<img src="" alt="">
+				</picture>
+		  	</div>
+		  	<div class="item__description"></div>
+		  	<div class="item__options">
+				<img src="design_specs/assets/Actions.png" alt="Ещё">
+				<img src="design_specs/assets/Heart.png" alt="Нравится">
+		  	</div>
+		  </div>
+		</template>
+
+		<!-- Маленькие без описания -->
+		<template id="template_s1">
+		  <div class="item">
+  			<div class="item__title-container">
+  				<div class="item__title"></div>
+  			</div>
+		  	<div class="item__image-container">
+		  		<picture>
+					<source srcset="" media="(max-width: 320px)">
+				 	<source srcset="" media="(max-width: 768px)">
+					<img src="" alt="">
+				</picture>
+		  	<div class="item__options">
+				<img src="design_specs/assets/Actions.png" alt="Ещё">
+				<img src="design_specs/assets/Heart.png" alt="Нравится">
+		  	</div>
+		  	</div>
+		  </div>
+		</template>
+
+		<!-- Маленькие без картинки -->
+		<template id="template_s2">
+		  <div class="item">
+		  	<div class="item__title"></div>
+		  	<div class="item__description"></div>
+  			<div class="item__channel"></div>
+		  	<div class="item__options">
+				<img src="design_specs/assets/Actions.png" alt="Ещё">
+				<img src="design_specs/assets/Heart.png" alt="Нравится">				
+		  	</div>
+		  </div>
+		</template>
+	</div>
+
+	<script src="data.js"></script>
+	<script>
+		// Ориентируемся на работу в Edge, Firefox, Safari, Яндекс.Браузер -> 
+		// поэтому проверка на поддержку <template> без `else`.
+		// Тем не менее не использую ES6, дабы не рисковать
+		if ('content' in document.createElement('template')) {
+			var feed = document.querySelector('.feed');			
+			var regex = /[\d]+/;
+			var item, clone, cloneOptions, tempString;
+
+			// Нарушаю принцип DRY в угоду принципу KISS
+			// Долго пытался переиспользовать элементы "сборки", но получался излишний overhead.
+			// Оставил повторения, но зато каждый из четырех типов постов собирается в своем блоке условия.
+			// На мой вкус это эффективнее и нагляднее
+			for(var i = 0; i < data.length; i++){
+				if(data[i].size == 'l'){
+					item = document.querySelector('#template_l').content.querySelector('.item');
+					item.querySelector('.item__title').textContent = data[i].title;
+					item.querySelector('.item__title').style.color = data[i].titleColor;
+					item.querySelector('.item__description').textContent = data[i].description;
+					tempString = data[i].image.match(regex)[0];
+					item.querySelectorAll('.item__image-container picture source')[0].srcset = data[i].image
+					item.querySelectorAll('.item__image-container picture source')[1].srcset = data[i].image.replace(regex, tempString + '@2x');
+					item.querySelector('.item__image-container picture img').src = data[i].image.replace(regex, tempString + '@3x');
+					item.querySelector('.item__image-container picture img').alt = data[i].title;
+
+					clone = document.importNode(item, true);
+					data[i].size == 'l' ? clone.classList.add('item_large') : clone.classList.add('item_medium')
+				} else if(data[i].size == 'm') {
+					item = document.querySelector('#template_m').content.querySelector('.item');
+					item.querySelector('.item__title').textContent = data[i].title;
+					item.querySelector('.item__title').style.color = data[i].titleColor;
+					item.querySelector('.item__description').textContent = data[i].description;
+					tempString = data[i].image.match(regex)[0];
+					item.querySelectorAll('.item__image-container picture source')[0].srcset = data[i].image
+					item.querySelectorAll('.item__image-container picture source')[1].srcset = data[i].image.replace(regex, tempString + '@2x');
+					item.querySelector('.item__image-container picture img').src = data[i].image.replace(regex, tempString + '@3x');
+					item.querySelector('.item__image-container picture img').alt = data[i].title;
+
+					clone = document.importNode(item, true);
+					data[i].size == 'l' ? clone.classList.add('item_large') : clone.classList.add('item_medium')
+				} else if(data[i].image){
+					item = document.querySelector('#template_s1').content.querySelector('.item');
+					item.querySelector('.item__title').textContent = data[i].title;
+					item.querySelector('.item__title').style.color = data[i].titleColor;
+					tempString = data[i].image.match(regex)[0];
+					item.querySelectorAll('.item__image-container picture source')[0].srcset = data[i].image
+					item.querySelectorAll('.item__image-container picture source')[1].srcset = data[i].image.replace(regex, tempString + '@2x');
+					item.querySelector('.item__image-container picture img').src = data[i].image.replace(regex, tempString + '@3x');
+					item.querySelector('.item__image-container picture img').alt = data[i].title;
+
+					clone = document.importNode(item, true);
+					clone.classList.add('item_small_onlyimage')
+				} else {
+					item = document.querySelector('#template_s2').content.querySelector('.item');
+					item.querySelector('.item__title').textContent = data[i].title;
+					item.querySelector('.item__title').style.color = data[i].titleColor;
+					item.querySelector('.item__description').textContent = data[i].description;
+					if(data[i].channelName) item.querySelector('.item__channel').textContent = data[i].channelName;
+
+					clone = document.importNode(item, true);
+					clone.classList.add('item_small_onlydescription')
+				}
+				feed.appendChild(clone);
+			}
+		}
+	</script>
+</body>
+</html>
