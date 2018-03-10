@@ -14,13 +14,13 @@ const generateUsers = async () => {
 
   await graphql(
     schema,
-    mocks.createUser("Красный", homeFloors[0]),
+    mocks.createUser("Красный", homeFloors[0], "http://3.bp.blogspot.com/-Vi2CfWQKPzc/TewJPMI8q4I/AAAAAAAAe_k/w_rb4_OdH5E/s1600/97.red-color.JPG"),
     {},
     { models }
   );
   await graphql(
     schema,
-    mocks.createUser("Жёлтый", homeFloors[1]),
+    mocks.createUser("Жёлтый", homeFloors[1], "https://i1.wp.com/www.castlecraft.com/images/Hydrobike_Color_Swatch_Yellow__.jpg"),
     {},
     { models }
   );

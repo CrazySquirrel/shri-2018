@@ -10,7 +10,8 @@ type User {
 
 input UserInput {
     login: String!
-    homeFloor: Int
+    homeFloor: Int,
+    avatarUrl: String!
 }
 
 type UserRoom {
