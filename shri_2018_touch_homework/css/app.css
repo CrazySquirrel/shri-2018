@@ -1,0 +1,413 @@
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background-color: #ACC0C1;
+    font-family: sans-serif;
+}
+
+.container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 450px) {
+    .container {
+        box-shadow: 1px 1px 20px #666;
+    }
+}
+
+.level {
+    position: relative;
+    min-width: 320px;
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.level_0 {
+    background-image: url(../img/level_0_bg.jpg);
+    height: 180px;
+    position: relative;
+}
+
+.level_0:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../img/logo.png) no-repeat center 25px;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.level_1 {
+    background-image: url(../img/level_1_bg.png);
+    height: 235px;
+}
+
+.level_2 {
+    background-image: url(../img/level_2_bg.png);
+    height: 235px;
+}
+
+.level_3 {
+    background-image: url(../img/level_3_bg.png);
+    height: 235px;
+}
+
+.level_4 {
+    background-image: url(../img/level_4_bg.png);
+    height: 235px;
+}
+
+.level_5 {
+    background-image: url(../img/level_5_bg.png);
+    height: 75px;
+}
+
+.door {
+    position: absolute;
+    bottom: 0;
+    background: url(../img/door.png) no-repeat top left;
+    width: 64px;
+    height: 100px;
+
+    cursor: pointer;
+}
+
+.door_locked {
+    background: url(../img/door_locked.png) no-repeat top left;
+}
+
+.door_disabled {
+    opacity: .7;
+}
+
+.door_level_0 {
+    right: 2%;
+}
+
+.door_level_1 {
+    left: 2%;
+}
+
+.door_level_2 {
+    right: 2%;
+}
+
+.door_level_3 {
+    left: 2%;
+}
+
+.box {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+
+    background: url('../img/box.png') no-repeat top left;
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background-color: rgba(0,0,0,.3);
+    transition: opacity .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.popup__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+
+    background: #000 url(../img/door_level_0.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.popup__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popup__close_black {
+    color: #000;
+}
+
+.popup__content_level_0 {
+    /* Можно поставить какую-нибудь свою картинку двери на бек */
+}
+
+.popup__content_level_1 {
+    background-image: url("../img/signs.jpg");
+}
+
+.popup__content_level_2 {
+    background-image: url("../img/slalom.jpg");
+}
+
+.popup__content_level_3 {
+    background-image: url("../img/yandex.jpg");
+}
+
+.popup__content_level_4 {
+    background-image: url(../img/victory.gif);
+    background-size: contain;
+}
+
+.door-riddle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.door-riddle_level_1 {
+    display: grid;
+    grid-template-areas: 
+    "a a"
+    "a a";
+}
+
+.door-riddle_level_2 {
+    display: grid;
+    grid-template-areas: 
+    "a b c"
+    "d e f"
+    "g h i";
+}
+
+.door-riddle_level_3 {
+    justify-content: center;
+}
+
+.door-riddle__button {
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    background-color: #583319;
+    border: 1px solid #F3E9E0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+
+    transition: background-color .3s;
+}
+
+.door-riddle__button_clamp {
+    background-color: transparent;
+    border: 4px dashed #6258a6;
+    box-shadow: none;
+
+}
+
+.door-riddle__button_pressed {
+    background-color: #F3E5D9;
+}
+
+.gear-container {
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+
+.gear-container_yellow {
+    height: 150px;
+    width: 150px;
+    margin: 7px;
+}
+
+.gear-container_red {
+    height: 75px;
+    width: 75px;
+}
+
+.gear {
+    background: #000;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform: rotate(291deg);
+    border-radius: 50px;
+    color: #fff;
+}
+
+.gear-container_yellow .gear {
+    background: #fecd00;
+    border-radius: 75px;
+    transform: rotate(-194deg);
+    /*transform: rotate(6deg);*/
+}
+
+.gear-container_red .gear {
+    background: #f80300;
+    border-radius: 38px;
+    transform: rotate(28deg);
+}
+
+.gear::after{
+    content: "Ш";
+    font-size: 60px;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gear-container_yellow .gear::after {
+    content: "Р";
+}
+
+.gear-container_red .gear::after {
+    content: "И";
+}
+
+.bar {
+    background: #000;
+    height: 7px;
+    width: 108px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+}
+
+.gear-container_yellow .bar {
+    background: #fecd00;
+    width: 159px;
+}
+
+.gear-container_red .bar {
+    background: #f80300;
+    width: 83px;
+}
+
+.bar:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(36deg);
+}
+.bar:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(72deg);
+}
+.bar:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(108deg);
+}
+.bar:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(144deg);
+}
+.bar:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(18deg);
+}
+.bar:nth-child(7) {
+    transform: translate(-50%, -50%) rotate(54deg);
+}
+.bar:nth-child(8) {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+.bar:nth-child(9) {
+    transform: translate(-50%, -50%) rotate(126deg);
+}
+.bar:nth-child(10) {
+    transform: translate(-50%, -50%) rotate(162deg);
+}
+
+.gear-container_yellow .bar:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(6deg);
+}
+.gear-container_yellow .bar:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(28.5deg);
+}
+.gear-container_yellow .bar:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(51deg);
+}
+.gear-container_yellow .bar:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(73.5deg);
+}
+.gear-container_yellow .bar:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(96deg);
+}
+.gear-container_yellow .bar:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(118.5deg);
+}
+.gear-container_yellow .bar:nth-child(7) {
+    transform: translate(-50%, -50%) rotate(141deg);
+}
+.gear-container_yellow .bar:nth-child(8) {
+    transform: translate(-50%, -50%) rotate(163.5deg);
+}
+.gear-container_yellow .bar:nth-child(9) {
+    transform: translate(-50%, -50%) rotate(17.25deg);
+}
+.gear-container_yellow .bar:nth-child(10) {
+    transform: translate(-50%, -50%) rotate(39.75deg);
+}
+.gear-container_yellow .bar:nth-child(11) {
+    transform: translate(-50%, -50%) rotate(62.25deg);
+}
+.gear-container_yellow .bar:nth-child(12) {
+    transform: translate(-50%, -50%) rotate(84.75deg);
+}
+.gear-container_yellow .bar:nth-child(13) {
+    transform: translate(-50%, -50%) rotate(107.25deg);
+}
+.gear-container_yellow .bar:nth-child(14) {
+    transform: translate(-50%, -50%) rotate(129.75deg);
+}
+.gear-container_yellow .bar:nth-child(15) {
+    transform: translate(-50%, -50%) rotate(152.25deg);
+}
+.gear-container_yellow .bar:nth-child(16) {
+    transform: translate(-50%, -50%) rotate(174.75deg);
+}
+
+
+
+.gear-container_red .bar:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.gear-container_red .bar:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+.gear-container_red .bar:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+.gear-container_red .bar:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(22.5deg);
+}
+.gear-container_red .bar:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(67.5deg);
+}
+.gear-container_red .bar:nth-child(7) {
+    transform: translate(-50%, -50%) rotate(112.5deg);
+}
+.gear-container_red .bar:nth-child(8) {
+    transform: translate(-50%, -50%) rotate(157.5deg);
+}
