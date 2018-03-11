@@ -101,7 +101,12 @@ function Door1(number, onUnlock) {
                 stepOneSuccessful = false;
             }
         } else {
-            if(buttons[0].classList.contains('door-riddle__button_pressed') && buttons[3].classList.contains('door-riddle__button_pressed')){
+            if(
+                buttons[0].classList.contains('door-riddle__button_pressed') && 
+                buttons[3].classList.contains('door-riddle__button_pressed') &&
+                !buttons[1].classList.contains('door-riddle__button_pressed') && 
+                !buttons[2].classList.contains('door-riddle__button_pressed')
+            ){
                 isOpened = true;
             }
         }
