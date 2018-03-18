@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Multimedia</title>
+  <style>
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow:hidden;
+      background: radial-gradient(
+        rgba(44, 94, 137, 0.2) 10%, 
+        rgba(60, 151, 230, 0.8) 45%, 
+        rgba(0, 0, 0, 1) 100%
+        );
+    }
+
+    video, canvas {
+      position: absolute;
+      width: auto; !important;
+      height: 100vh !important;
+    }
+
+    #overlay-container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #overlay {
+      animation: blink 10s ease infinite alternate;
+      position: absolute;
+ /*     top: 50%;
+      left: 50%;*/
+      height: 500vh;
+      width: 500vw;
+      transform: scale(1,1);
+      z-index: 10;
+      background: radial-gradient(
+        rgba(44, 94, 137, 0.2) 10%, 
+        rgba(60, 151, 230, 0.8) 15%, 
+        rgba(0, 0, 0, 1) 17%
+        );
+    }
+
+    #monitor {
+      display: none; 
+    }
+  
+    #canvasLayers {
+      position: relative; 
+      left: 0px; 
+      top: 0px;
+    }
+
+    #videoCanvas {
+      z-index: 1; 
+      position: absolute; 
+      left:0px; 
+      top:0px;
+      height: 100vh !important; 
+      width: 100vw !important;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    #layer2 {
+      z-index: 2; 
+      position: absolute; 
+      left:0px; 
+      top:0px;
+      height: 100vh !important; 
+      width: 100vw !important;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    #blendCanvas {
+      display: none; 
+      position: relative; 
+    }
+
+    @keyframes blink {
+      0% {
+        transform: scale(1,1);
+      }
+
+      75% {
+        transform: scale(1,0.92);
+      }
+
+      85% {
+        transform: scale(1,0.9);
+      }
+
+      95% {
+        transform: scale(1,0.94);
+      }
+
+      100% {
+        transform: scale(1,0.215);
+      }
+    }
+
+  </style>
+</head>
+<body>
+<!--   <video id="video" width="640" height="480" preload autoplay loop muted></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+
+  <iframe style="margin-top: 50vh;" width="640" height="360" src="https://www.youtube.com/embed/YiiNSrDuECw?rel=0&autoplay=1&modestbranding=1&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<button id="btn" style="margin-top: 100vh" onclick="trackerTask.stop()">qwe</button>
+   -->
+
+   <video id="monitor" autoplay></video>
+
+<div id="canvasLayers"  width="640" height="480">
+<canvas id="videoCanvas" width="640" height="480"></canvas>
+<canvas id="layer2" width="640" height="480"></canvas>
+</div>
+<div id="overlay-container">
+  <div id="overlay"></div>
+</div>
+<canvas id="blendCanvas"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+  <script src="/src/app/glitch-canvas.js"></script>
+  <script src="/dist/bundle.js"></script>
+</body>
+
+</html>
