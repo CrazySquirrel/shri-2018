@@ -1,0 +1,98 @@
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow:hidden;
+      background: radial-gradient(
+        rgba(44, 94, 137, 0.2) 10%, 
+        rgba(60, 151, 230, 0.8) 45%, 
+        rgba(0, 0, 0, 1) 100%
+        );
+    }
+
+    video, canvas {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #overlay-container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #overlay {
+      animation: blink 10s ease infinite alternate;
+      position: absolute;
+      height: 500vh;
+      width: 500vw;
+      transform: scale(1,1);
+      z-index: 10;
+      background: radial-gradient(
+        rgba(44, 94, 137, 0.2) 10%, 
+        rgba(60, 151, 230, 0.8) 15%, 
+        rgba(0, 0, 0, 1) 17%
+        );
+    }
+
+    #monitor {
+      display: none; 
+    }
+  
+    #canvasLayers {
+      position: relative; 
+      left: 0px; 
+      top: 0px;
+    }
+
+    #videoCanvas {
+      z-index: 1; 
+      position: absolute; 
+      left:0px; 
+      top:0px;
+      height: 100vh; 
+      width: 100vw;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    #layer2 {
+      z-index: 2; 
+      position: absolute; 
+      left:0px; 
+      top:0px;
+      height: 100vh; 
+      width: 100vw;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    #blendCanvas {
+      display: none; 
+      position: relative; 
+    }
+
+    @keyframes blink {
+      0% {
+        transform: scale(1,1);
+      }
+
+      75% {
+        transform: scale(1,0.92);
+      }
+
+      85% {
+        transform: scale(1,0.9);
+      }
+
+      95% {
+        transform: scale(1,0.94);
+      }
+
+      100% {
+        transform: scale(1,0.215);
+      }
+    }

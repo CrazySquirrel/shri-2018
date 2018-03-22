@@ -16,15 +16,12 @@ return  window.requestAnimationFrame       ||
 };
 })();
 
-const video = document.querySelector('#monitor');
+const video = document.querySelector('#video');
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const analyser = audioContext.createAnalyser();
-const distortion = audioContext.createWaveShaper();
-const gainNode = audioContext.createGain();
-const biquadFilter = audioContext.createBiquadFilter();
 
-let audioSource;
+let audioSource, lastImageData, trackerTask;
 
 if (!navigator.getUserMedia) alert('Браузер не поддерживает работу с веб-камерой')
 navigator.getUserMedia({ video: true, audio: true }, gotStream, noStream);
@@ -43,8 +40,7 @@ function gotStream(stream) {
 
   audioSource = audioContext.createMediaStreamSource(stream);
   audioSource.connect(analyser);
-  analyser.connect(distortion);
-  distortion.connect(audioContext.destination);
+  analyser.connect(audioContext.destination);
 
   stream.onended = noStream;
 }
@@ -56,25 +52,30 @@ function noStream(e) {
   alert(msg)
 }
 
-
+/*
+ * Инициализация канвасов
+ */
 let bufferLength = analyser.frequencyBinCount;
 let dataArray = new Float32Array(bufferLength);
 
-const videoCanvas = document.getElementById( 'videoCanvas' );
+const videoCanvas = document.querySelector('#videoCanvas');
 const videoContext = videoCanvas.getContext( '2d' );
 
-const layer2Canvas = document.getElementById( 'layer2' );
+const layer2Canvas = document.querySelector('#layer2');
 const layer2Context = layer2Canvas.getContext( '2d' );
 
-const blendCanvas  = document.getElementById( "blendCanvas" );
+const blendCanvas  = document.querySelector('#blendCanvas');
 const blendContext = blendCanvas.getContext('2d');
 
 videoContext.translate(640, 0);
 videoContext.scale(-1, 1);
-    
-videoContext.fillStyle = '#005337';
+videoContext.fillStyle = '#000000';
 videoContext.fillRect( 0, 0, videoCanvas.width, videoCanvas.height );       
 
+
+/*
+ * GUI
+ */
 const buttons = [];
 
 const button1 = new Image();
@@ -108,6 +109,9 @@ let state = {
   energy: 100
 };
 
+/*
+ * Отрисовка
+ */
 animate();
 
 function animate() {
@@ -174,7 +178,7 @@ function render() {
     layer2Context.stroke();
 
     layer2Context.beginPath();
-    analyser.fftSize = 1024;
+    analyser.fftSize = 512;
     analyser.getFloatTimeDomainData(dataArray);
 
     for (var i=0;i<512;i+=2){
@@ -204,33 +208,36 @@ function render() {
   }
 }
 
-let lastImageData;
-
 function blend() {
-  var width  = videoCanvas.width;
-  var height = videoCanvas.height;
+  const width  = videoCanvas.width;
+  const height = videoCanvas.height;
   
-  var sourceData = videoContext.getImageData(0, 0, width, height);
+  // получаем "картинку" с вебки
+  const sourceData = videoContext.getImageData(0, 0, width, height);
   
+  // обновляем кэш предыдущего фрейма
   if (!lastImageData) lastImageData = videoContext.getImageData(0, 0, width, height);
   
-  var blendedData = videoContext.createImageData(width, height);
+  // создаем экземпляр image data для "смешивания"
+  const blendedData = videoContext.createImageData(width, height);
   
+  // смешиваем два изображения
   differenceAccuracy(blendedData.data, sourceData.data, lastImageData.data);
-
+  
+  // отрисовываем на итоговый канвас
   blendContext.putImageData(blendedData, 0, 0);
 
+  // кэшируем фрейм
   lastImageData = sourceData;
 }
 
 function differenceAccuracy(target, data1, data2) {
   if (data1.length != data2.length) return null;
-  var i = 0;
-  while (i < (data1.length * 0.25)) 
-  {
-    var average1 = (data1[4*i] + data1[4*i+1] + data1[4*i+2]) / 3;
-    var average2 = (data2[4*i] + data2[4*i+1] + data2[4*i+2]) / 3;
-    var diff = threshold(fastAbs(average1 - average2));
+  let i = 0;
+  while (i < (data1.length * 0.25)) {
+    const average1 = (data1[4*i] + data1[4*i+1] + data1[4*i+2]) / 3;
+    const average2 = (data2[4*i] + data2[4*i+1] + data2[4*i+2]) / 3;
+    const diff = threshold(fastAbs(average1 - average2));
     target[4*i]   = diff;
     target[4*i+1] = diff;
     target[4*i+2] = diff;
@@ -248,21 +255,23 @@ function threshold(value) {
 }
 
 function checkAreas() {
-  for (var b = 0; b < buttons.length; b++) {
-    var blendedData = blendContext.getImageData( buttons[b].x, buttons[b].y, buttons[b].w, buttons[b].h );
+  for (let b = 0; b < buttons.length; b++) {
+    const blendedData = blendContext.getImageData( buttons[b].x, buttons[b].y, buttons[b].w, buttons[b].h );
       
-    var i = 0;
-    var sum = 0;
-    var countPixels = blendedData.data.length * 0.25;
-    while (i < countPixels) 
-    {
+    // calculate the average lightness of the blended data
+    let i = 0;
+    let sum = 0;
+    let countPixels = blendedData.data.length * 0.25;
+    while (i < countPixels) {
       sum += (blendedData.data[i*4] + blendedData.data[i*4+1] + blendedData.data[i*4+2]);
       ++i;
     }
-
-    var average = Math.round(sum / (3 * countPixels));
+    // считаем среднее количество цвета
+    const average = Math.round(sum / (3 * countPixels));
+    
+    // если цвет отличается более, чем на 20% -> триггер
     if (average > 50) {
-      console.log( "Button " + buttons[b].name + " triggered." ); // do stuff
+      // увеличиваем здоровье/энергию
       state[buttons[b].name] = Math.min(100, state[buttons[b].name] + 20);
     }
   }
